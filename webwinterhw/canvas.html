@@ -1,0 +1,134 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>canvas</title>
+  <style>
+    body{ 
+      background:#ccc;
+    }
+    canvas{ 
+      background:#fff;
+      margin:50px 10px; 
+    }
+    input{ 
+      display:inline-block; 
+      width:80px; 
+      height:30px; 
+      cursor:pointer; 
+      margin-left:10px;
+      background-color: #fff;
+      outline: none;
+    }
+    .btn{
+      position: absolute;
+      width: 1000px;
+      height: 30px;
+      margin: 0 auto;
+      
+
+    }
+    /*input:hover{
+      background-color: yellow;
+    }*/
+    .container{
+      width: 701px;
+      height: 701px;
+      margin:0 auto;
+      position: absolute;
+    }
+    #red:hover{background-color: red;}
+    #green:hover{background-color: green;}
+    #blue:hover{background-color: blue;}
+    #gray:hover{background-color: gray;}
+    #purple:hover{background-color: purple;}
+    #orange:hover{background-color: orange;}
+    #pink:hover{background-color: pink;}
+    #yellow:hover{background-color: yellow;}
+    #default:hover{background-color: black;}
+  </style>
+  <body>
+    <div class="container">
+      <canvas width="1000" height="600" id="canvas">
+          <!-- <span>亲，您的浏览器不支持canvas，换个浏览器试试吧！</span> -->
+      </canvas>
+    </div>
+    <div class="btn">
+        <input type="button" value="RED" id="red">
+        <input type="button" value="GREEN" id="green">
+        <input type="button" value="BLUE" id="blue">
+        <input type="button" value="GRAY" id="gray">
+        <input type="button" value="PURPLE" id="purple">
+        <input type="button" value="ORANGE" id="orange">
+        <input type="button" value="PINK" id="pink">
+        <input type="button" value="YELLOW" id="yellow">
+        <input type="button" value="DEFAULT" id="default">
+        <input type="button" value="CLEAR" id="clear">
+    </div>
+    <script>
+      window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var oInput = document.getElementsByTagName("input");
+
+        for(var i=0;i<oInput.length;i++){
+            oInput[i].onclick = function(){
+                var ID = this.getAttribute('id');
+                switch(ID){
+                    case 'red':
+                        ctx.strokeStyle = 'red';
+                        break;
+                    case 'green':
+                        ctx.strokeStyle = 'green';
+                        break;
+                    case 'blue':
+                        ctx.strokeStyle = 'blue';
+                        break;
+                    case 'gray':
+                        ctx.strokeStyle = 'gray';
+                        break;
+                    case 'purple':
+                        ctx.strokeStyle = 'purple';
+                        break;
+                     case 'orange':
+                        ctx.strokeStyle = 'orange';
+                        break;
+                     case 'pink':
+                        ctx.strokeStyle = 'pink';
+                        break;
+                     case 'yellow':
+                        ctx.strokeStyle = 'yellow';
+                        break;
+                    case 'default':
+                        ctx.strokeStyle = 'black';
+                        break;
+                    case 'clear':
+                        ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
+                        break;    
+                }    
+            }    
+        }
+        draw();
+        function draw(){
+            canvas.onmousedown = function(ev){
+                var ev = ev || event;
+                ctx.beginPath();
+                ctx.moveTo(ev.clientX-canvas.offsetLeft,ev.clientY-canvas.offsetTop);
+                document.onmousemove = function(ev){
+                    var ev = ev || event;
+                    ctx.lineTo(ev.clientX - canvas.offsetLeft,ev.clientY - canvas.offsetTop);
+                    ctx.stroke();    
+                }
+                document.onmouseup = function(ev){
+                    document.onmousemove = document.onmouseup = null;
+                    ctx.closePath();
+                }
+                
+            }
+        }
+        
+        
+        
+    }
+    </script>
+  </body>
+</html>

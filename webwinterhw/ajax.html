@@ -1,0 +1,39 @@
+<html>
+<head>
+  <title>获取数据并展示</title>
+  <meta charset="utf-8">
+  <style>
+    .txt{
+        width: 200px;
+        height: 20px;
+        margin-top: 20px;
+    }
+    .submit{
+        width: 100px;
+        height: 30px;
+        background-color: white;
+        margin-top: 20px;
+        font-size: 18px;
+    }
+    .submit:hover{
+        background-color: red;
+    }
+    
+  </style>
+  <script>
+
+</script>
+  
+</head>
+<body>
+    <form action="http://api.juheapi.com/japi/toh" method="GET" class="form">
+        <input type="text" class="txt" name="key" placeholder="appkey"></br>
+        <input type="text" name="v" class="txt" placeholder="version"></br>
+        <input type="text" class="txt" name="month" placeholder="month"></br>
+        <input type="text" class="txt" name="day" placeholder="day"></br>
+        <!-- <button type="button" id="btn" onclick="show()">click</button> -->
+        <input type="submit" class="submit" value="submit">
+    </form>
+<!--   <div id="myDiv"></div> -->
+</body>
+</html>

@@ -11,10 +11,14 @@
       	
     	<ul class="nav">
     		<!-- <li><img  src="./img3/logo.png"></li> -->
-    		<li><a href="#"></li>
-        <li><a href="#"></li>
-        <li><a href="#"></li>
-        <!-- <li><a href="#"></li> -->
+    		<li><a></a></li>
+        <li><a></a></li>
+        <li><a></a></li>
+        <li><a></a></li>
+        <li><a></a></li>
+        <li><a></a></li>
+        <li><a></a></li>
+        <li><a></a></li>
     		 
     		<li><a href="#">Home</a></li>
     		<li><a href="#">Portfolio</a></li>
@@ -38,7 +42,7 @@
 <!-- 关键字转换，增加template id -->
          <div class="main" id="template_main">
             <div class="main-i" id="main_{{index}}">
-             <img src="./img3/{{index}}.png" class="picture">
+             <img src="./img3/{{index}}.png" class="picture" id="obj">
             </div>
       
          </div>
@@ -48,8 +52,8 @@
 
          </div>
         </div>
-        <input type="button" class="btnleft" id="butLeft" name="name" value="<">
-        <input type="button" id="butRights" class="btnright" name="name" value=">">
+        <input type="button" class="btnleft" id="btnLeft" onmousedown="GoUp()" onmouseup="StopUp()" value="<">
+        <input type="button" id="btnRight" class="btnright" onmousedown="GoDown()" onmouseup="StopDown()" value=">">
       		<h1>Donec solicitudin molestie malesuada Nulla quis lorem ut libero mal suada 
           </br>feugiat.Curabitur aliquet quam uis lorem</h1>
       	</div>
@@ -81,7 +85,8 @@
       	</div>
       	
      <div class="footer1">
-       <img src="./img3/4.png">
+       <img src="./img3/4.png" class="img" id="imgs">
+
       <!--  <img src="./img3/5.png">
        <img src="./img3/6.png"> -->
        <div class="circle">

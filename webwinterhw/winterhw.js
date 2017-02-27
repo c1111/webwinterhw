@@ -47,7 +47,7 @@
             //获得要展现的幻灯片&控制元素 DOM
             var main = g('main_'+n);
             var ctrl = g('ctrl_'+n);
-            var butLeft = g('but')
+            
             //获得所有幻灯片及控制元素
             var clear_main = g('.main-i');
             var clear_ctrl = g('.ctrl-i');
@@ -73,6 +73,55 @@
 
         }
 
+        //第一个轮播
+        var curIndex = 0;
+    var timeInterval = 3000;
+    var arr = new Array();
+    arr[0] = "./img3/{{index}}.png";
+    arr[1] = "./img3/2.png";
+    arr[2] = "./img3/3.png";
+    setInterval(changeImg,timeInterval);
+    function changeImg(){
+        var obj = document.getElementById('obj');
+        if(curIndex == arr.length - 1){
+            curIndex = 0;
+        }else{
+            curIndex += 1;
+        }
+        obj.src = arr[curIndex];
+    }
+    //第二个轮播
+    setInterval(test,3000);
+    var array = new Array();
+    var index = 0;
+    var array = new Array("./img3/4.png","./img3/5.png","./img3/6.png");
+    function test(){
+        var myImg = document.getElementById('imgs');
+        if(index == array.length - 1){
+            index = 0;
+        }else{
+            index ++;
+        }
+        myImg.src = array[index];
+    }
+        // function GoUp(event){
+        //      var e= window.event;
+        //      var obj=e.srcElement;
+        //      obj=g('.picture');
+        //      var pictures = g('.picture');
+        //     for(i=0;i<pictures.length;i++){
+        //         pictures[i].style.marginTop = (-1* pictures[i].clientHeight/2 )+ 'px'
+        //     }
+        // }
+        // function StopUp(event){
+        //     var e= window.event;
+        //     var obj=e.srcElement;
+        //     var pictures = g('.picture');
+        //     obj=g('.picture');
+        //     for(i=0;i<pictures.length;i++){
+        //         pictures[i].style.marginTop = (-1* pictures[i].clientHeight/2)+'px'
+        //     }
+        // }
         //定义何时处理幻灯片输出
         window.onload = function(){
             addSliders();
@@ -82,37 +131,40 @@
             },100)
             
         }
-       var images = document.getElementsByTagName('img');
-var btn = document.getElementById('btn');
 
-//获取变量index 用来为后面设置层级用
-var index = 1000;
-// 获取一个空的数组，用来存放images里面的字符串元素
-var imagess = [];
+
+
+//        var images = document.getElementsByTagName('img');
+// var btn = document.getElementById('btn');
+
+// //获取变量index 用来为后面设置层级用
+// var index = 1000;
+// // 获取一个空的数组，用来存放images里面的字符串元素
+// var imagess = [];
  
-// for循环用来给imagess数组赋值，并且改变数组中的元素的层级
-for (var i = 0; i < images.length; i++) {
-imagess[i] = images[i];
-var currentImage = imagess[i];
-// 当前图片的层级的设置，一轮for循环都为他们设置了初始的zIndex，图片越靠前，层级设置
-// 要求越高，所以用的是－i,这样图片会按顺序从第一张，第二张.....依次向下
-currentImage.style.zIndex = -i;
-}
+// // for循环用来给imagess数组赋值，并且改变数组中的元素的层级
+// for (var i = 0; i < images.length; i++) {
+// imagess[i] = images[i];
+// var currentImage = imagess[i];
+// // 当前图片的层级的设置，一轮for循环都为他们设置了初始的zIndex，图片越靠前，层级设置
+// // 要求越高，所以用的是－i,这样图片会按顺序从第一张，第二张.....依次向下
+// currentImage.style.zIndex = -i;
+// }
  
-// 设置计数器count，执行一次点击事件（向左或者向右）count加1
-var count = 0;
-// 向左的点击事件
-btn.onclick = function() {
-// 从数组头部弹出一个图片元素
-var showFirst = imagess.shift();
-// 给弹出的这个图片元素设置层级，即 －1000+count，
-// 让层级相较其他元素是最小的，数组头部弹出的图片会显示在最底层
-showFirst.style.zIndex = - index + count;
-// 层级改变完成后再将他push进数组的尾部
-imagess.push(showFirst);
-// 点击一次加1，不用考虑具体的值，只需要有点击事件加 1
-count++;
-}
+// // 设置计数器count，执行一次点击事件（向左或者向右）count加1
+// var count = 0;
+// // 向左的点击事件
+// btn.onclick = function() {
+// // 从数组头部弹出一个图片元素
+// var showFirst = imagess.shift();
+// // 给弹出的这个图片元素设置层级，即 －1000+count，
+// // 让层级相较其他元素是最小的，数组头部弹出的图片会显示在最底层
+// showFirst.style.zIndex = - index + count;
+// // 层级改变完成后再将他push进数组的尾部
+// imagess.push(showFirst);
+// // 点击一次加1，不用考虑具体的值，只需要有点击事件加 1
+// count++;
+// }
 // 向右点击事件
 // btn.onclick = function() {
 // // 从imagess的尾部弹出一个元素，并赋值给showFirst
